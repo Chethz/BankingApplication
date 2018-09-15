@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6392e819-4cce-451d-8062-e2ee46462f08" name="Default" comment="">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Banking_Application/riderModule.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Banking_Application.sln" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Banking_Application/Banking_Application.csproj" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Banking_Application/Program.cs" afterDir="false" />
@@ -101,12 +107,12 @@
       <option name="presentableId" value="Default" />
       <updated>1536062258228</updated>
       <workItem from="1536062269776" duration="324000" />
-      <workItem from="1536970945830" duration="716000" />
+      <workItem from="1536970945830" duration="1183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1040000" />
+    <option name="totallyTimeSpent" value="1507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
