@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("Banking_Application.UnitTests")]
 
 namespace Banking_Application
 {
-    public class Customer
+    class Customer
     {
         //Holding unique number for the account
         private static ulong _Count = 0;
@@ -84,6 +86,7 @@ namespace Banking_Application
         
         //Customer class Methods 
         //Constructor
+        
         private Customer(ulong customerID, string firstName, string lastName, string address, DateTime dob, string contact = "", string email = "")
         {
             _ID = customerID;
