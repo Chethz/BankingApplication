@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("Banking_Application.UnitTests")]
 
@@ -126,6 +127,57 @@ namespace Banking_Application
                 sumBalance += accounts.Balance;
             }
             return sumBalance;
+        }
+        
+        public override string ToString()
+        {
+            double totalBalance = SumBalance();
+            return string.Format("ID: {0,-3} Name: {1,-7} {2,-10} Address: {3,-14} DOB: {4,-12} Contact: {5,-12} Email: {6,-18} Total balance: {7,-10:0,0.0}", _ID, _FirstName, _LastName, _Address, _DOB.ToShortDateString(), _Contact, _Email, totalBalance);
+        }
+
+        public void ToStream(StreamWriter sw)
+        {
+            sw.WriteLine(_ID);
+            sw.WriteLine(_FirstName);
+            sw.WriteLine(_LastName);
+            sw.WriteLine(_Address);
+            sw.WriteLine(_DOB.ToShortDateString());
+            sw.WriteLine(_Contact);
+            sw.WriteLine(_Email);
+        }
+
+        // Factory methods
+        public static Customer CreateCustomer(string firstName, string lastName, string address, DateTime dob, string contact = "", string email = "")
+        {
+            try
+            {
+                Validation.ForCreatingCustomer(firstName, lastName, address, dob, contact, email);
+                return new Customer(firstName, lastName, address, dob, contact, email);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static Customer CreateCustomer(StreamReader sr)
+        {
+            try
+            {
+                ulong customerID = Convert.ToUInt32(sr.ReadLine());
+                string firstName = sr.ReadLine();
+                string lastName = sr.ReadLine();
+                string address = sr.ReadLine();
+                DateTime dob = Convert.ToDateTime(sr.ReadLine());
+                string contact = sr.ReadLine();
+                string email = sr.ReadLine();
+                Validation.ForCreatingCustomer(firstName, lastName, address, dob, contact, email);
+                return new Customer(customerID, firstName, lastName, address, dob, contact, email);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

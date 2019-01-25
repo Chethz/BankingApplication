@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking_Application", "Banking_Application\Banking_Application.csproj", "{A4F1C32B-DFF7-482F-858D-735F00A57C2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking_Application.UnitTests", "Banking_Application.UnitTests\Banking_Application.UnitTests.csproj", "{6A1EC669-D15C-47DD-AAD5-EBC765897C37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{A4F1C32B-DFF7-482F-858D-735F00A57C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4F1C32B-DFF7-482F-858D-735F00A57C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4F1C32B-DFF7-482F-858D-735F00A57C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1EC669-D15C-47DD-AAD5-EBC765897C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1EC669-D15C-47DD-AAD5-EBC765897C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1EC669-D15C-47DD-AAD5-EBC765897C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1EC669-D15C-47DD-AAD5-EBC765897C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

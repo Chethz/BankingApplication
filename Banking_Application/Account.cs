@@ -199,6 +199,11 @@ namespace Banking_Application
             }
         }
 
+        public static Account CreateAccount(int accountType, List<Customer> customers, ulong ownerID, double initBalance = 0)
+        {
+            return CreateAccount(accountType, customers, ownerID, DateTime.Now, initBalance);
+        }
+        
         public static Account CreateAccount(int accountType, List<Customer> customers, ulong ownerID,
             DateTime openedDate, double initialBalance = 0)
         {
