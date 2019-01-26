@@ -6,7 +6,8 @@ namespace Banking_Application
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            BankingSystem bankingSystem = new BankingSystem();
+            bankingSystem.Start();
         }
     }
 }
