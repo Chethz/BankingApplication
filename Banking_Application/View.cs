@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Banking_Application
 {
@@ -72,42 +73,290 @@ namespace Banking_Application
 
         private void CreateCustomer()
         {
+            while (true)
+            {
+                Console.WriteLine("\n-----Creating Customer----");
+                Console.Write("Enter First Name : ");
+                string firstName = Console.ReadLine().Trim();
+                Console.Write("Enter Last Name : ");
+                string lastName = Console.ReadLine().Trim();
+                Console.Write("Enter Address : ");
+                string address = Console.ReadLine().Trim();
+                Console.Write("Enter Date of birth : ");
+                string dob = Console.ReadLine().Trim();
+                Console.Write("Enter Contact : ");
+                string contact = Console.ReadLine().Trim();
+                Console.Write("Enter Email : ");
+                string email = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine().ToUpper().Trim();
 
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.AddCustomer(firstName, lastName, address, dob, contact, email);
+                        Console.WriteLine("Customer has been created successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         private void SearchCustomer()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n-----Search Customer----");
+                Console.Write("Enter First Name: ");
+                string firstName = Console.ReadLine().Trim();
+                Console.Write("Enter Last Name : ");
+                string lastName = Console.ReadLine().Trim();
+                Console.Write("Enter Address : ");
+                string address = Console.ReadLine().Trim();
+                Console.Write("Enter Date of birth : ");
+                string dob = Console.ReadLine().Trim();
+                Console.Write("Enter Contact : ");
+                string contact = Console.ReadLine().Trim();
+                Console.Write("Enter Email : ");
+                string email = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine().ToUpper().Trim();
+                if (option == "S")
+                {
+                    try
+                    {
+                        DisplaySearchResuarlt(_BankingSystem.SearchCustomers(firstName, lastName, address, dob, contact, email));
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+        
+        // Displaying search results of customer search
+        private void DisplaySearchResuarlt(List<Customer> results)
+        {
+            Console.WriteLine("Search results:");
+            foreach (Customer customer in results)
+                Console.WriteLine(customer.ToString());
+            Console.WriteLine("\nPress any keys to go back to Main menu");
+            Console.ReadLine();
         }
 
         private void OpenAccount()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n--------Open Account-------");
+                Console.Write("Enter Owner ID : ");
+                string ownerID = Console.ReadLine().Trim();
+                Console.Write("Enter Account Type : ");
+                string accountType = Console.ReadLine().Trim();
+                Console.Write("Enter Intial Balance : ");
+                string balance = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine().ToUpper().Trim();
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.AddAccount(ownerID, accountType, balance);
+                        Console.WriteLine("An account has been opened successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
         }
 
         private void SearchAccount()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n--------Search Account-------");
+                Console.Write("Enter Account ID: ");
+                string accountID = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine();
+                if (option == "S")
+                {
+                    try
+                    {
+                        DisplayAccountSearchResult(_BankingSystem.SearchAccount(accountID));
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
+        }
+        
+        // Displaying search result of account search
+        private void DisplayAccountSearchResult(Account result)
+        {
+            Console.WriteLine("Search results:");
+            Console.WriteLine(result.ToString());
+            Console.WriteLine("\nPress any keys to go back to Main menu");
+            Console.ReadLine();
         }
 
         private void Transfer()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n------------Transfer------------");
+                Console.Write("Enter Source Account ID : ");
+                string sourceAccountID = Console.ReadLine().Trim();
+                Console.Write("Enter Destination Account ID : ");
+                string destinationAccountID = Console.ReadLine().Trim();
+                Console.Write("Enter Amount : ");
+                string amount = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine();
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.Transfer(sourceAccountID, destinationAccountID, amount);
+                        Console.WriteLine("Transaction has been done successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
         }
 
         private void Deposit()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n------------Deposit------------");
+                Console.Write("Enter Account ID : ");
+                string accountID = Console.ReadLine().Trim();
+                Console.Write("Enter Amount : ");
+                string amount = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option: ");
+                string option = Console.ReadLine();
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.Deposit(accountID, amount);
+                        Console.WriteLine("Transaction has been done successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
         }
 
         private void Withdraw()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n------------Withdraw------------");
+                Console.Write("Enter Account ID : ");
+                string accountID = Console.ReadLine().Trim();
+                Console.Write("Enter Amount : ");
+                string amount = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option : ");
+                string option = Console.ReadLine();
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.Withdraw(accountID, amount);
+                        Console.WriteLine("Transaction has been done successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
         }
 
         private void MonthlyDeposit()
         {
-
+            while (true)
+            {
+                Console.WriteLine("\n------------Monthly Deposit------------");
+                Console.Write("Enter Account ID : ");
+                string accountID = Console.ReadLine().Trim();
+                Console.Write("Enter Monthly Deposit : ");
+                string monthlyDeposit = Console.ReadLine().Trim();
+                Console.WriteLine("Press 's' or 'S' if you want to submit");
+                Console.WriteLine("Press any other keys if you want to cancel");
+                Console.Write("Your option : ");
+                string option = Console.ReadLine();
+                if (option == "S")
+                {
+                    try
+                    {
+                        _BankingSystem.SetMonthlyDeposit(accountID, monthlyDeposit);
+                        Console.WriteLine("Transaction has been done successfully!");
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                    break;
+            }
         }
     }
 }
