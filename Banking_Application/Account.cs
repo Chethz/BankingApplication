@@ -6,7 +6,7 @@ namespace Banking_Application
 {
     abstract class Account
     {
-        //Count hold the current nmber of accounts in the system
+        //_Count hold the current number of accounts in the system
         private static ulong _Count = 0;
 
         //Attributes
@@ -100,11 +100,18 @@ namespace Banking_Application
         public override string ToString()
         {
             if (_Active)
+            {
                 return string.Format("ID:{0,-5} Open Date: {1,-12} Balance: {2,-10:0,0.0} Owner: {3,-7} {4,-10}", _ID,
                     _OpenDate.ToShortDateString(), _Balance, _Owner.FirstName, _Owner.LastName,
                     _ClosedDate.ToShortDateString());
+            }
             else
-                return string.Format("ID: {0,-5} Opened Date: {1,-12} Balance: {2,-10:0,0.0} Owner: {3,-7} {4,-10} - Closed on {5}", _ID, _OpenDate.ToShortDateString(), _Balance, _Owner.FirstName, _Owner.LastName, _ClosedDate.ToShortDateString());
+            {
+                return string.Format(
+                    "ID: {0,-5} Opened Date: {1,-12} Balance: {2,-10:0,0.0} Owner: {3,-7} {4,-10} - Closed on {5}", _ID,
+                    _OpenDate.ToShortDateString(), _Balance, _Owner.FirstName, _Owner.LastName,
+                    _ClosedDate.ToShortDateString());
+            }
         }
 
         public void ToStream(StreamWriter sw)

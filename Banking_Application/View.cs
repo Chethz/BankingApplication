@@ -158,7 +158,9 @@ namespace Banking_Application
         {
             Console.WriteLine("Search results:");
             foreach (Customer customer in results)
+            {
                 Console.WriteLine(customer.ToString());
+            }
             Console.WriteLine("\nPress any keys to go back to Main menu");
             Console.ReadLine();
         }

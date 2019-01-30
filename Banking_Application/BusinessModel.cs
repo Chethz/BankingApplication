@@ -113,7 +113,9 @@ namespace Banking_Application
                 {
                     uint nAccounts = Convert.ToUInt32(sr.ReadLine());
                     for (uint i = 0; i < nAccounts; i++)
+                    {
                         _Accounts.Add(Account.CreateAccount(sr, _Customers));
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -174,7 +176,9 @@ namespace Banking_Application
         public void AddCustomer(string firstName, string lastName, string address, string dob, string contact, string email)
         {
             if (Utility.DoesExist(_Customers, firstName, lastName))
+            {
                 throw new Exception(ErrorMessage.ExistingCustomer);
+            }
             else
             {
                 try
@@ -243,8 +247,13 @@ namespace Banking_Application
             {
                 Account account = SearchAccount(accountID);
                 if (account.GetType() != typeof(TypeOneAccount))
+                {
                     throw new Exception(ErrorMessage.InvalidDeposit);
-                ((TypeOneAccount)account).Deposit(Convert.ToDouble(amount));
+                }
+                else
+                {
+                    ((TypeOneAccount) account).Deposit(Convert.ToDouble(amount));
+                }
             }
             catch (Exception ex)
             {
@@ -258,8 +267,13 @@ namespace Banking_Application
             {
                 Account account = SearchAccount(accountID);
                 if (account.GetType() != typeof(TypeOneAccount))
+                {
                     throw new Exception(ErrorMessage.InvalidWithdrawal);
-                ((TypeOneAccount)account).Withdraw(Convert.ToDouble(amount));
+                }
+                else
+                {
+                    ((TypeOneAccount) account).Withdraw(Convert.ToDouble(amount));
+                }
             }
             catch (Exception ex)
             {
@@ -273,8 +287,13 @@ namespace Banking_Application
             {
                 Account account = SearchAccount(accountID);
                 if (account.GetType() != typeof(TypeTwoAccount))
+                {
                     throw new Exception(ErrorMessage.InvalidMonthlyDeposit);
-                ((TypeTwoAccount)account).MonthlyDeposit = Convert.ToDouble(monthlyDeposit);
+                }
+                else
+                {
+                    ((TypeTwoAccount) account).MonthlyDeposit = Convert.ToDouble(monthlyDeposit);
+                }
             }
             catch (Exception ex)
             {

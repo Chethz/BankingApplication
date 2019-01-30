@@ -34,32 +34,42 @@ namespace Banking_Application
             }
 
             if (!valid)
+            {
                 throw new Exception(ErrorMessage.InvalidContact);
+            }
         }
         
         public static void ForFirstName(string firstName)
         {
             if (firstName.Length == 0)
+            {
                 throw new Exception(ErrorMessage.InvalidFirstName);
+            }
         }
 
         public static void ForLastName(string lastName)
         {
             if (lastName.Length == 0)
+            {
                 throw new Exception(ErrorMessage.InvalidLastName);
+            }
         }
 
         public static void ForAddress(string address)
         {
             if (address.Length == 0)
+            {
                 throw new Exception(ErrorMessage.InvalidAddress);
+            }
         }
 
         public static void ForContact(string contact)
         {
             bool valid = true;
             if (contact.Length > 0 && contact.Length != 10)
+            {
                 valid = false;
+            }
             else
             {
                 for (int i = 0; i < contact.Length; i++)
@@ -69,8 +79,11 @@ namespace Banking_Application
                         break;
                     }
             }
+
             if (!valid)
+            {
                 throw new Exception(ErrorMessage.InvalidContact);
+            }
         }
         
         //Validations of attributes
